@@ -1,0 +1,54 @@
+/* Container */
+.about-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 10px 20px;
+  line-height: 1.7;
+
+  background: #f9f9fb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.about-title {
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* Section titles */
+.about-subtitle {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #0078d7; /* primary theme */
+}
+
+/* Text */
+.about-text {
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Lists */
+.about-list {
+  margin: 10px 0 20px 20px;
+  color: #444;
+}
+
+.about-list li {
+  margin-bottom: 8px;
+}
+
+/* Privacy box */
+.about-privacy {
+  margin-top: 25px;
+  padding: 15px;
+  border-left: 4px solid #0078d7;
+  background: #ffffff;
+  border-radius: 8px;
+  color: #444;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
