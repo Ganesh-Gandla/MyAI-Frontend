@@ -34,7 +34,7 @@ function App() {
     setIsLoading(true)
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+      const API_URL = import.meta.env.VITE_API_URL;
 
       const response = await axios.post(`${API_URL}/ask`, { question });
       const finalRes = response.data
