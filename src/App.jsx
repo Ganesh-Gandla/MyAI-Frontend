@@ -39,7 +39,9 @@ function App() {
       const response = await axios.post(`${API_URL}/ask`, { question });
       const finalRes = response.data
 
-      const resText = finalRes.status ? finalRes.finalData : "AI limit reached for today. Please try later."
+      const resText = finalRes.status
+        ? finalRes.finalData
+        : finalRes.message || "Something went wrong";
 
       const newConversation = {
         question,
@@ -50,11 +52,13 @@ function App() {
       setConversations(prev => [...prev, newConversation])
     } catch (err) {
       console.error("Error occurred:", err)
+
       const newConversation = {
         question,
-        res: "Please try again",
+        res: err.response?.data?.message || "Server error. Try again later.",
         timestamp: new Date().toLocaleString()
       }
+
       setConversations(prev => [...prev, newConversation])
     }
 
@@ -82,8 +86,10 @@ function App() {
 
         {/* Loading animation while waiting for response */}
         {isLoading && (
-          <div className="message ai-message loading-dots">
-            <span></span><span></span><span></span>
+          <div className="message ai-message ">
+            <p>Thinking...</p>
+
+            {/* <span></span><span></span><span></span> */}
           </div>
         )}
 
@@ -99,7 +105,9 @@ function App() {
           onChange={e => setQuestion(e.target.value)}
           className="chat-input"
         />
-        <button type="submit" className="chat-button">Send</button>
+        <button type="submit" className="chat-button" disabled={isLoading}>
+          {isLoading ? "Sending..." : "Send"}
+        </button>
       </form>
     </div>
   )
