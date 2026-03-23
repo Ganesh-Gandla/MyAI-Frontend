@@ -1,7 +1,10 @@
+import ChatBot from "../components/ChatBot"
+
 function Home(){
     return(
         <>
-        Home
+        <ChatBot />
         </>
     )
 }
+export default Home
