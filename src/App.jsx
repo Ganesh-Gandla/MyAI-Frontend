@@ -34,10 +34,12 @@ function App() {
     setIsLoading(true)
 
     try {
-      const response = await axios.post(`http://localhost:3000/ask`, { question })
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
+      const response = await axios.post(`${API_URL}/ask`, { question });
       const finalRes = response.data
 
-      const resText = finalRes._status ? finalRes.finalData : "Please try again"
+      const resText = finalRes.status ? finalRes.finalData : "Please try again"
 
       const newConversation = {
         question,
