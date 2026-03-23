@@ -39,7 +39,7 @@ function App() {
       const response = await axios.post(`${API_URL}/ask`, { question });
       const finalRes = response.data
 
-      const resText = finalRes.status ? finalRes.finalData : "Please try again"
+      const resText = finalRes.status ? finalRes.finalData : "AI limit reached for today. Please try later."
 
       const newConversation = {
         question,
