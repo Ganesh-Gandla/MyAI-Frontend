@@ -3,6 +3,8 @@ import axios from "axios"
 import Markdown from 'react-markdown'
 
 import './App.css'
+import NavBar from './components/NavBar'
+import { Outlet } from 'react-router'
 
 function App() {
   const [question, setQuestion] = useState("")
@@ -66,7 +68,10 @@ function App() {
     setQuestion("")
   }
 
-  return (
+  return (<>
+
+    <NavBar/>
+    <Outlet/>
     <div className="chat-container">
       <h1 className="chat-title">MyAI Chatbot</h1>
 
@@ -110,6 +115,7 @@ function App() {
         </button>
       </form>
     </div>
+    </>
   )
 }
 
